@@ -1,0 +1,55 @@
+.dashboard {
+  min-height: 100vh;
+  background: #0d0d0d;
+}
+
+.chatContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #232526 0%, #18191a 100%);
+  border-radius: 12px;
+  border: 1px solid #e50914;
+}
+
+.backButton {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: #b00710;
+  transform: translateX(-3px);
+}
+
+.currentTherapist {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.currentTherapist span {
+  color: #e50914;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .chatHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

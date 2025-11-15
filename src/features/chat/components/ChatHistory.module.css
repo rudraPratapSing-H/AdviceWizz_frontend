@@ -1,0 +1,225 @@
+.chatHistory {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(229, 9, 20, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e50914;
+}
+
+.header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e50914;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.historyList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.historyList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.historyList::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.historyList::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+
+.historyList::-webkit-scrollbar-thumb:hover {
+  background: #b00710;
+}
+
+.historyItem {
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(229, 9, 20, 0.2);
+}
+
+.historyItem:hover {
+  background: rgba(40, 40, 40, 1);
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(229, 9, 20, 0.4);
+  border: 1px solid rgba(229, 9, 20, 0.5);
+}
+
+.historyItem.selected {
+  background: rgba(40, 40, 40, 1);
+  border: 2px solid #e50914;
+  transform: scale(1.02);
+}
+
+.conversationPreview {
+  margin-bottom: 8px;
+}
+
+.previewQuery {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.previewQuery strong {
+  color: #e50914;
+  margin-right: 5px;
+}
+
+.previewResponse {
+  color: #b0b0b0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  padding-left: 10px;
+  border-left: 2px solid #e50914;
+}
+
+.previewResponse strong {
+  color: #ff2a2a;
+  margin-right: 5px;
+}
+
+.therapistBadge {
+  margin-top: 8px;
+  display: inline-block;
+  background: rgba(229, 9, 20, 0.2);
+  color: #ff6b6b;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+.conversationNumber {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #e50914 0%, #b00710 100%);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.footer {
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #e50914;
+}
+
+.loadButton {
+  width: 100%;
+  padding: 12px 20px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loadButton:hover:not(:disabled) {
+  background: #b00710;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(229, 9, 20, 0.5);
+}
+
+.loadButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading,
+.error {
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.error {
+  color: #ffebee;
+}
+
+.retryButton {
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.retryButton:hover {
+  background: #b00710;
+}
+
+.emptyState {
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.emptyState p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.emptyHint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

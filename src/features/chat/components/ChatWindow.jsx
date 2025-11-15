@@ -1,4 +1,4 @@
-import { Modal } from 'react-native';
+
 import { useState } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';

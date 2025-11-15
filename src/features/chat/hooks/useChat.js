@@ -1,10 +1,44 @@
-import { useState, useCallback } from 'react';
-import { sendMessage } from '../services/chatbotAPI';
+import { useState, useCallback, useEffect } from 'react';
+import { sendMessage, getConversationHistory } from '../services/chatbotAPI';
 
 export const useChat = (userId, styleTypeId = 'default') => {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // Load chat history when therapist changes
+  useEffect(() => {
+    const loadHistory = async () => {
+      try {
+        const data = await getConversationHistory(userId);
+        const allHistory = data[userId] || [];
+        const filteredHistory = allHistory.filter(
+          conv => conv.therapist === styleTypeId
+        );
+        
+        // Convert history to message format
+        const historyMessages = filteredHistory.flatMap(conv => [
+          {
+            text: conv.query,
+            sender: 'user',
+            timestamp: new Date().toISOString(),
+          },
+          {
+            text: conv.response,
+            sender: 'bot',
+            timestamp: new Date().toISOString(),
+          }
+        ]);
+        
+        setMessages(historyMessages);
+      } catch (err) {
+        console.error('Error loading history:', err);
+        setMessages([]);
+      }
+    };
+
+    loadHistory();
+  }, [userId, styleTypeId]);
 
   const handleSendMessage = useCallback(async (userMessage) => {
     // Add user message to chat

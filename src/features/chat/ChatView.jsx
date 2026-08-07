@@ -6,7 +6,7 @@ const ChatView = () => {
   const userId = 'user123';
   const [styleTypeId, setStyleTypeId] = useState('default');
 
-  const { messages, isLoading, error, sendMessage } = useChat(userId, styleTypeId);
+  const { messages, isLoading, sendMessage } = useChat(userId, styleTypeId);
 
   return (
     <Dashboard
